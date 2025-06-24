@@ -70,3 +70,50 @@ class Solution {
 
     }
 }
+
+// class Solution {
+//     public void setZeroes(int[][] matrix) {
+
+//         int m = matrix.length; //no of rows
+//         int n = matrix[0].length; //no of columns
+
+//         Set<Integer> rows = new HashSet<>(); //stores the rows we need to turn 0
+//         Set<Integer> columns = new HashSet<>(); //similar for columns
+
+//         //find the rows and columns with zeroes
+//         for(int i = 0; i < m; i++)
+//         {
+//             for(int j = 0; j < n; j++)
+//             {
+//                 if(matrix[i][j] == 0)
+//                 {
+//                     System.out.println(0);
+//                     rows.add(i);
+//                     columns.add(j);
+//                 }
+//             }
+//         }
+
+//         // System.out.println(rows);
+//         // System.out.println(columns);
+
+//         //making rows 0
+//         for(int i : rows)
+//         {
+//             for(int j = 0; j < n; j++)
+//             {
+//                 matrix[i][j] = 0;
+//             }
+//         }
+
+//         //making columns 0 
+//         for(int j : columns)
+//         {
+//             for(int i = 0; i < m; i++)
+//             {
+//                 matrix[i][j] = 0;
+//             }
+//         }
+        
+//     }
+// }
