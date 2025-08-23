@@ -1,0 +1,32 @@
+/**
+ * Definition of Interval:
+ * public class Interval {
+ *     public int start, end;
+ *     public Interval(int start, int end) {
+ *         this.start = start;
+ *         this.end = end;
+ *     }
+ * }
+ */
+
+
+//Sorting method
+class Solution {
+    public boolean canAttendMeetings(List<Interval> intervals) {
+        //sort based on start time
+        Collections.sort(intervals, Comparator.comparingInt(i -> i.start));
+
+        //overlap if the start of the second is < end of the first
+        for(int i = 1; i < intervals.size(); i++)
+        {
+            Interval A = intervals.get(i-1);
+            Interval B = intervals.get(i);
+
+            if(B.start < A.end)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
