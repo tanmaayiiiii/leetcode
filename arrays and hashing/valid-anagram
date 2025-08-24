@@ -1,0 +1,73 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for(char c : s.toCharArray())
+        {
+            if(map.containsKey(c))
+            {
+                map.put(c, map.get(c)+1);
+            }
+            else
+            {
+                map.put(c,1);
+            }
+        }
+
+        for(char c : t.toCharArray())
+        {
+            if(map.containsKey(c))
+            {
+                map.put(c, map.get(c)-1);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        for(int i : map.values())
+        {
+            if(i != 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+// class Solution {
+//     public boolean isAnagram(String s, String t) {
+
+//         if(s.length() != t.length())
+//         {
+//             return false;
+//         }
+
+//         System.out.print('b' - 'a');
+
+//         int[] array = new int[26]; //for the 26 characters
+
+//         for(char c: s.toCharArray())
+//         {
+//             array[c - 'a']++; //if it's an a, we increment index 0
+//         }
+        
+//         for(char c: t.toCharArray())
+//         {
+//             array[c - 'a']--;
+//         }
+
+//         for(int i : array) //gives me the elements of the array which should all be 0 
+//         {
+//             if(i != 0)
+//             {
+//                 return false;
+//             }
+//         }
+
+//         return true;
+//     }
+// }
